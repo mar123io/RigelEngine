@@ -2,10 +2,13 @@
 
 #include "Game.h"
 
-Game::Game() : window(sf::VideoMode(800, 600), "Rigel Engine")
+Game::Game() : window(sf::VideoMode(800, 600), "Asteroids")
 {
 	window.setFramerateLimit(60);
-	gameObjects.push_back(new Player(375.0f, 275.0f)); // Add a player to the game objects
+	spaceship = new Spaceship(400.0f, 300.0f);
+	gameObjects.push_back(spaceship);
+	gameObjects.push_back(new Asteroid(100.0f, 100.0f, 30.0f));
+	gameObjects.push_back(new Asteroid(500.0f, 200.0f, 40.0f));
 }
 
 void Game::run()

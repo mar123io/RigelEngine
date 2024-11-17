@@ -9,13 +9,14 @@ class GameObject
 {
 public:
 	GameObject(float x, float y, sf::Color color);
+	virtual ~GameObject();
 	virtual void handleInput() = 0;
 	virtual void update() = 0;
 	virtual void render(sf::RenderWindow& window);
 	sf::FloatRect getBounds() const;
 
 protected:
-	sf::RectangleShape shape;
+	sf::Shape* shape;
 	float speed;
 };
 

@@ -6,19 +6,19 @@ void Player::handleInput()
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
-		shape.move(0, -speed * 0.016f); // Move up
+		shape->move(0, -speed * 0.016f); // Move up
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-		shape.move(0, speed * 0.016f); // Move down
+		shape->move(0, speed * 0.016f); // Move down
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
-		shape.move(-speed * 0.016f, 0); // Move left
+		shape->move(-speed * 0.016f, 0); // Move left
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
-		shape.move(speed * 0.016f, 0); // Move right
+		shape->move(speed * 0.016f, 0); // Move right
 	}
 }
 

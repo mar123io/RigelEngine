@@ -6,8 +6,11 @@
 
 #pragma once
 
+#include <SFML/Graphics.hpp>
+
 #include "GameObject.h"
-#include "Player.h"
+#include "Spaceship.h"
+#include "Asteroid.h"
 #include "Collision.h"
 
 class Game
@@ -23,6 +26,7 @@ private:
 	void checkCollisions();
 
 	sf::RenderWindow window;
+	Spaceship* spaceship;
 	std::vector<GameObject*> gameObjects;
 };
 
