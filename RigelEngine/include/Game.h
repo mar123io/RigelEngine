@@ -24,10 +24,12 @@ private:
 	void update();
 	void render();
 	void checkCollisions();
+	void spawnAsteroids();
 
 	sf::RenderWindow window;
 	Spaceship* spaceship;
 	std::vector<GameObject*> gameObjects;
+	sf::Clock spawnClock;
 };
 
 #endif // !GAME_H

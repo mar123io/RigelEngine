@@ -2,12 +2,27 @@
 
 Asteroid::Asteroid(float x, float y, float size) : GameObject(x, y, sf::Color::Yellow), size(size)
 {
-	shape = new sf::CircleShape(size);
-	sf::CircleShape* asteroidShape = static_cast<sf::CircleShape*>(shape);
-	asteroidShape->setFillColor(sf::Color::Yellow);
-	asteroidShape->setOrigin(size, size);
+	createIrregularShape(size);
+	shape->setPosition(x, y);
 	angle = static_cast<float>(rand() % 360);
 	speed = 50.0f;
+}
+
+void Asteroid::createIrregularShape(float size)
+{
+	shape = new sf::ConvexShape(8);
+	sf::ConvexShape* asteroidShape = static_cast<sf::ConvexShape*>(shape);
+
+	for (int i = 0; i < 8; ++i)
+	{
+		float angle = static_cast<float>(i) * 3.14159265f / 4.0f;
+		float radius = size + static_cast<float>(rand() % 10 - 5);
+		asteroidShape->setPoint(i, sf::Vector2f(std::cos(angle) * radius, sin(angle) * radius));
+	}
+	asteroidShape->setFillColor(sf::Color::Transparent);
+	asteroidShape->setOutlineColor(sf::Color::Yellow);
+	asteroidShape->setOutlineThickness(2.0f);
+	asteroidShape->setOrigin(size, size);
 }
 
 void Asteroid::handleInput()

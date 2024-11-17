@@ -15,6 +15,7 @@ public:
 	void render(sf::RenderWindow& window) override;
 
 private:
+	void createIrregularShape(float size);
 	float angle;
 	float size;
 };

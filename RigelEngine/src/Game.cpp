@@ -7,8 +7,7 @@ Game::Game() : window(sf::VideoMode(800, 600), "Asteroids")
 	window.setFramerateLimit(60);
 	spaceship = new Spaceship(400.0f, 300.0f);
 	gameObjects.push_back(spaceship);
-	gameObjects.push_back(new Asteroid(100.0f, 100.0f, 30.0f));
-	gameObjects.push_back(new Asteroid(500.0f, 200.0f, 40.0f));
+	spawnAsteroids();
 }
 
 void Game::run()
@@ -43,6 +42,12 @@ void Game::update()
 		gameObject->update();
 	}
 	checkCollisions();
+
+	if (spawnClock.getElapsedTime().asSeconds() > 2)
+	{
+		spawnAsteroids();
+		spawnClock.restart();
+	}
 }
 
 void Game::render()
@@ -67,5 +72,28 @@ void Game::checkCollisions()
 				std::cout << "Collision detected between objects " << i << " and " << j << "!" << std::endl;
 			}
 		}
+	}
+}
+
+void Game::spawnAsteroids()
+{
+	int numberOfAsteroids = 0;
+	int asteroidCount = 0;
+	for (auto& gameObject : gameObjects)
+	{
+		if (dynamic_cast<Asteroid*>(gameObject) != nullptr)
+			asteroidCount++;
+	}
+
+	// Only spawn new asteroids if there are less than 3
+	if(asteroidCount < 3)
+		numberOfAsteroids = rand() % 2 + 2;
+
+	for (int i = 0; i < numberOfAsteroids && asteroidCount < 3; ++i, ++asteroidCount)
+	{
+		float x = static_cast<float>(rand() % 800);
+		float y = static_cast<float>(rand() % 600);
+		float size = static_cast<float>(rand() % 40 + 20);
+		gameObjects.push_back(new Asteroid(x, y, size));
 	}
 }
