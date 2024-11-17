@@ -1,12 +1,6 @@
 #include "Player.h"
 
-Player::Player(float x, float y)
-{
-	shape.setSize(sf::Vector2f(50.0f, 50.0f));
-	shape.setFillColor(sf::Color::Green);
-	shape.setPosition(x, y);
-	speed = 200.0f; // Pixels per second
-}
+Player::Player(float x, float y) : GameObject(x, y, sf::Color::Green) {}
 
 void Player::handleInput()
 {
@@ -31,9 +25,4 @@ void Player::handleInput()
 void Player::update()
 {
 	// Update player state here
-}
-
-void Player::render(sf::RenderWindow& window)
-{
-	window.draw(shape);
 }

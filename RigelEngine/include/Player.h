@@ -3,19 +3,14 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include <SFML/Graphics.hpp>
+#include "GameObject.h"
 
-class Player
+class Player : public GameObject
 {
 public:
 	Player(float x, float y);
-	void handleInput();
-	void update();
-	void render(sf::RenderWindow& window);
-
-private:
-	sf::RectangleShape shape;
-	float speed;
+	void handleInput() override;
+	void update() override;
 };
 
-#endif // PLAYER_H
+#endif // !PLAYER_H
