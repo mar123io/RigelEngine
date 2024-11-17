@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "Game.h"
 
 Game::Game() : window(sf::VideoMode(800, 600), "Rigel Engine")
@@ -37,6 +39,7 @@ void Game::update()
 	{
 		gameObject->update();
 	}
+	checkCollisions();
 }
 
 void Game::render()
@@ -47,4 +50,19 @@ void Game::render()
 		gameObject->render(window);
 	}
 	window.display();
+}
+
+void Game::checkCollisions()
+{
+	for (size_t i = 0; i < gameObjects.size(); ++i)
+	{
+		for (size_t j = i + 1; j < gameObjects.size(); ++j)
+		{
+			if (checkCollision(*gameObjects[i], *gameObjects[j]))
+			{
+				// Handle collision (e.g., stop movement, remove objects, etc.)
+				std::cout << "Collision detected between objects " << i << " and " << j << "!" << std::endl;
+			}
+		}
+	}
 }

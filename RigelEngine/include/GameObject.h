@@ -1,4 +1,5 @@
 #pragma once
+
 #ifndef GAMEOBJECT_H
 #define GAMEOBJECT_H
 
@@ -11,6 +12,7 @@ public:
 	virtual void handleInput() = 0;
 	virtual void update() = 0;
 	virtual void render(sf::RenderWindow& window);
+	sf::FloatRect getBounds() const;
 
 protected:
 	sf::RectangleShape shape;

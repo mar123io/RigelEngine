@@ -12,3 +12,8 @@ void GameObject::render(sf::RenderWindow& window)
 {
 	window.draw(shape);
 }
+
+sf::FloatRect GameObject::getBounds() const
+{
+	return shape.getGlobalBounds();
+}
