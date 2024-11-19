@@ -5,6 +5,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "GameObject.h"
+#include "Bullet.h"
 
 class Spaceship : public GameObject
 {
@@ -14,7 +15,7 @@ public:
 	void update() override;
 	void render(sf::RenderWindow& window) override;
 
-	std::vector<sf::CircleShape> bullets;
+	std::vector<Bullet*> bullets;
 
 private:
 	float angle;

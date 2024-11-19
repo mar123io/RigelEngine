@@ -15,6 +15,8 @@ public:
 	virtual void render(sf::RenderWindow& window);
 	sf::FloatRect getBounds() const;
 
+	sf::Shape* getShape() const;
+
 protected:
 	sf::Shape* shape;
 	float speed;

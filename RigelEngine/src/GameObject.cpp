@@ -21,3 +21,8 @@ sf::FloatRect GameObject::getBounds() const
 {
 	return shape->getGlobalBounds();
 }
+
+sf::Shape* GameObject::getShape() const
+{
+	return shape;
+}

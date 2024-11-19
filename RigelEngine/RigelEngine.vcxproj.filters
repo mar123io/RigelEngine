@@ -45,6 +45,9 @@
     <ClCompile Include="src\Asteroid.cpp">
       <Filter>Source Files\Asteroids sources</Filter>
     </ClCompile>
+    <ClCompile Include="src\Bullet.cpp">
+      <Filter>Source Files\Asteroids sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Collision.h">
@@ -63,6 +66,9 @@
       <Filter>Header Files\Asteroids headers</Filter>
     </ClInclude>
     <ClInclude Include="include\Asteroid.h">
+      <Filter>Header Files\Asteroids headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Bullet.h">
       <Filter>Header Files\Asteroids headers</Filter>
     </ClInclude>
   </ItemGroup>
